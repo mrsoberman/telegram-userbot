@@ -1,0 +1,16 @@
+[Unit]
+Description=Telegram Userbot Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/telegram-userbot
+ExecStart=/usr/bin/python3 /root/telegram-userbot/main.py
+Restart=always
+RestartSec=5
+StandardOutput=file:/root/telegram-userbot/bot.log
+StandardError=file:/root/telegram-userbot/bot.log
+
+[Install]
+WantedBy=multi-user.target

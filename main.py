@@ -8,13 +8,16 @@ import asyncio
 
 nest_asyncio.apply()
 
-# --- Konfigurasi API Telegram ---
-api_id = 28420040
-api_hash = '818defcc6440540407fb080f93ff5626'
+from dotenv import load_dotenv
+import os
 
-# --- Grup sumber & target ---
-SOURCE_CHAT = -1002214581326
-TARGET_CHAT = 'soberfilter'
+load_dotenv()
+
+api_id = int(os.getenv("API_ID"))
+api_hash = os.getenv("API_HASH")
+
+SOURCE_CHAT = int(os.getenv("SOURCE_CHAT"))
+TARGET_CHAT = os.getenv("TARGET_CHAT")
 
 # --- Inisialisasi Telethon ---
 client = TelegramClient('sober-session', api_id, api_hash)
